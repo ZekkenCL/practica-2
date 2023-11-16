@@ -4,7 +4,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import chañaral from './assets/images/chañaral.jpg';
 import crunchyroll from './assets/images/crunchyroll_portada.webp';
 import edad from './assets/images/edad.png';
-import Esports from './assets/images/Esports.jpg';
+import esports from './assets/images/Esports.jpg';
 import gmail from './assets/images/gmail.jpg';
 import spotify from './assets/images/SPOTIFY.png';
 
@@ -42,12 +42,25 @@ function App() {
     ));
   };
 
-  const renderHobbies = () => {
-    return profileData.hobbies.map((hobby, index) => (
-      <li key={index}>{hobby.name}</li>
-    ));
+  const getHobbyImage = (hobbyName) => {
+    switch (hobbyName) {
+      case "E-Sports": return esports;
+      case "Anime": return crunchyroll;
+      case "Musica": return spotify;
+      default: return '';
+    }
   };
 
+  const renderCarouselItems = () => {
+    return profileData.hobbies.map((hobby, index) => (
+      <div className={`carousel-item ${index === 0 ? 'active' : ''}`} key={index}>
+        <img src={getHobbyImage(hobby.name)} className="d-block w-100" alt={hobby.name} />
+        <div className="carousel-caption d-none d-md-block">
+          <h5>{hobby.name}</h5>
+        </div>
+      </div>
+    ));
+  };
 
 
   return (
@@ -102,15 +115,26 @@ function App() {
         </div>
       </div>
 
+      <h2>INTERESES</h2>
+      <div id="hobbiesCarousel" className="carousel slide" data-bs-ride="carousel">
+        <div className="carousel-indicators">
+          <button type="button" data-bs-target="#hobbiesCarousel" data-bs-slide-to="0" className="active" aria-current="true" aria-label="Slide 1"></button>
+          <button type="button" data-bs-target="#hobbiesCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+          <button type="button" data-bs-target="#hobbiesCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+        </div>
+        <div className="carousel-inner">
+          {renderCarouselItems()}
+        </div>
+        <button className="carousel-control-prev" type="button" data-bs-target="#hobbiesCarousel" data-bs-slide="prev">
+          <span className="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span className="visually-hidden">Anterior</span>
+        </button>
+        <button className="carousel-control-next" type="button" data-bs-target="#hobbiesCarousel" data-bs-slide="next">
+          <span className="carousel-control-next-icon" aria-hidden="true"></span>
+          <span className="visually-hidden">Siguiente</span>
+        </button>
+      </div>
 
-      {/* Hobbies */}
-      <h2>Hobbies</h2>
-      <ul>
-        {renderHobbies()}
-      </ul>
-
-
-      {/* Frameworks */}
       <table className="table">
         <thead>
           <tr>
