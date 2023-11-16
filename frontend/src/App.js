@@ -152,8 +152,8 @@ function App() {
         <div className="col text-center">
           <h2>Redes Sociales</h2>
           <div className="d-flex justify-content-center">
-            <a href={profileData.spotifyLink} target="_blank" className="btn btn-primary me-2"><i className="bi bi-spotify"></i> Spotify</a>
-            <a href={profileData.instagramLink} target="_blank" className="btn btn-primary"><i className="bi bi-instagram"></i> Instagram</a>
+            <a href="https://open.spotify.com/playlist/1N2fv7s2jGCQmuwQPSblt7?si=925c5a3390324f4b" target="_blank" className="btn btn-primary me-2"><i className="bi bi-spotify"></i> Spotify</a>
+            <a href="https://www.instagram.com/beno.gg/" target="_blank" className="btn btn-primary"><i className="bi bi-instagram"></i> Instagram</a>
           </div>
         </div>
       </div>
