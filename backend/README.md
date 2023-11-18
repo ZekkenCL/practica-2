@@ -63,3 +63,4 @@ Ejecutar backend
 
     python app.py
 
+El proyecto debería estar ahora ejecutándose en `localhost:5000/api/profile`.
