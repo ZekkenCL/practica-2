@@ -4,7 +4,7 @@ from models import User, Framework, Hobby
 from flask_cors import CORS
 
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://"USUARIO":"CONTRASEÑA"@localhost:3306/practica2'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root:beno1989@localhost:3306/practica2'
 
 db.init_app(app)
 migrate.init_app(app, db)
